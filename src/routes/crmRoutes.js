@@ -3,26 +3,26 @@ import {
   getContacts,
   getContactByID,
   updateContact,
-  deleteContact
+  deleteContact,
 } from '../controllers/crmController';
 
 const routes = (app) => {
   app.route('/contact')
-      .get((req, res, next) => {
-        // middleware
-        console.log(`Request from: ${req.originalUrl}`)
-        console.log(`Request type: ${req.method}`)
-        next();
-      }, getContacts)
+    .get((req, res, next) => {
+      // middleware
+      console.log(`Request from: ${req.originalUrl}`);
+      console.log(`Request type: ${req.method}`);
+      next();
+    }, getContacts)
 
-      .post(addNewContact);
+    .post(addNewContact);
 
   app.route('/contact/:contactID')
-      .get(getContactByID)
+    .get(getContactByID)
 
-      .put(updateContact)
+    .put(updateContact)
 
-      .delete(deleteContact)
-}
+    .delete(deleteContact);
+};
 
 export default routes;
